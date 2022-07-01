@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarwarsService } from './starwars.service';
 
 @Component({
   selector: 'app-character-details',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterDetailsComponent implements OnInit {
 
-  constructor() { }
+  characterData = null
 
-  ngOnInit(): void {
+  constructor(private starwarsApi:StarwarsService) { }
+
+  ngOnInit() {
+    this.starwarsApi.getCharacterData().subscribe((data))=>{
+      this.characterData = data; 
+    }
   }
 
 }

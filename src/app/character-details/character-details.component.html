@@ -4,7 +4,10 @@
         <div class="col" *ngFor="let character of characterData">
             <div class="card shadow-sm bg-light bg-gradient">
                 <div class="card-body">
-                    <p>{{character.name}}</p>
+                    <p class="fw-bolder">{{character.name}}</p>
+                    <p>{{character.height}}cm</p>
+                    <p>{{character.mass}}kg</p>
+                    <p>{{character.birth_year}}</p>
                 </div>
             </div>
         </div>

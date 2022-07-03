@@ -8,13 +8,16 @@ import { StarwarsService } from '../starwars.service';
 })
 export class CharacterDetailsComponent implements OnInit {
 
-  characterData = null
+  characterData: any;
 
-  constructor(private starwarsApi:StarwarsService) { }
+  constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit() {
-    
-    }
+    this.starwarsApi.getSpecificCharacter().subscribe(data => {
+      this.characterData = data
+      console.log(data)
+    })
   }
+}
 
 

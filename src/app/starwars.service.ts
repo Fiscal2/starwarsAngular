@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StarwarsService {
 
-  private readonly BASE_API_URL: string = "https://swapi.dev/api/people/"
+  private readonly BASE_API_URL: string = "https://swapi.dev/api"
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  public getPeople() {
-    
+  public getSpecificCharacter() {
+    return this.http.get(`${this.BASE_API_URL}/people/1/`);
   }
 }

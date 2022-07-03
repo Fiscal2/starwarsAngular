@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StarwarsService {
 
-  constructor(private http:HttpClient) {}
+  private readonly BASE_API_URL: string = "https://swapi.dev/api/people/"
 
-  getPeopleData() {
-    return this.http.get('https://swapi.dev/api/people/');
+  constructor(private http: HttpClient) {}
+
+  public getPeople() {
+    
   }
 }

@@ -8,7 +8,7 @@ import { StarwarsService } from '../starwars.service';
 })
 export class CharacterDetailsComponent implements OnInit {
 
-  characterData: any;
+  characterData: any | undefined;
 
   constructor(private starwarsApi: StarwarsService) { }
 

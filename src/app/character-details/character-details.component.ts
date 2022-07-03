@@ -14,8 +14,8 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.starwarsApi.getCharacters().subscribe(data => {
-      this.characterData = data
-      console.log(data)
+      this.characterData = data.results
+      console.log(data.results)
     })
   }
 }

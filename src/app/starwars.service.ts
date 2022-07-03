@@ -14,4 +14,8 @@ export class StarwarsService {
   public getSpecificCharacter(): Observable<any> {
     return this.http.get<any>(`${this.BASE_API_URL}/people/1/`);
   }
+
+  public getCharacters(): Observable<any> {
+    return this.http.get<any>(`${this.BASE_API_URL}/people/`);
+  }
 }

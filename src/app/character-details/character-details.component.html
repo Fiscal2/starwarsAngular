@@ -1,2 +1,4 @@
 <p>character-details works!</p>
-<p>{{characterData.name}}</p>
+<div class="col" *ngFor="let character in characterData">
+    <p>{{characterData.name}}</p>
+</div>

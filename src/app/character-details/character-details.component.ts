@@ -31,18 +31,18 @@ export class CharacterDetailsComponent implements OnInit {
   }
 
   characterSorter() {
-    this.allCharacters.sort(a, b) {
+    this.allCharacters.sort((a: any, b: any) => {
       const nameA = a.name.toLowerCase();
       const nameB = b.name.toLowerCase();
-      if(nameA < nameB) {
+      if (nameA < nameB) {
         return -1;
       }
-      if(nameA > nameB) {
+      if (nameA > nameB) {
         return 1;
       }
 
       return 0;
-    }
+    })
   }
 }
 

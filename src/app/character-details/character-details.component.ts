@@ -12,6 +12,8 @@ export class CharacterDetailsComponent implements OnInit {
 
   allCharacters: any = []
 
+  sortedCharacters: any = []
+
   constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit() {
@@ -26,7 +28,10 @@ export class CharacterDetailsComponent implements OnInit {
     this.starwarsApi.getAllCharacters().subscribe(data => {
       this.allCharacters.push(...data.results);
     });
-    console.log(this.allCharacters);
+  }
+
+  characterSorter() {
+    
   }
 }
 

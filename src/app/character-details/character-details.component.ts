@@ -10,7 +10,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   characterData: any | undefined;
 
-  const allCharacters = []
+  allCharacters: any = []
 
   constructor(private starwarsApi: StarwarsService) { }
 
@@ -19,12 +19,14 @@ export class CharacterDetailsComponent implements OnInit {
       this.characterData = data.results
     });
 
-    this.starwarsApi.getAllCharacters().subscribe(data => console.log(data.results));
-
+    this.groupedCharacters();
   }
-  groupedCharacters() {
-    this.starwarsApi.getAllCharacters().subscribe(data => this.allCharacters.push.concat(1)(data.results));
 
+  groupedCharacters() {
+    this.starwarsApi.getAllCharacters().subscribe(data => {
+      this.allCharacters.push(data.results);
+      console.log(this.allCharacters)
+    });
   }
 }
 

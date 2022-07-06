@@ -20,11 +20,13 @@ export class StarwarsService {
   }
 
   public getAllCharacters(): Observable<any>[] {
-    const allCharacters = []
+    const allCharacters: any = []
     let baseUrl = "https://swapi.dev/api/people/"
     for (let i = 1; i <= 82; i++) {
-      const pageData = this.http.get<any>(baseUrl);
-      allCharacters.push(pageData);
+      this.http.get<any>(baseUrl).subscribe((response: any) => {
+        allCharacters.push(response.results);
+      });
+
       baseUrl = `https://swapi.dev/api/people/?page=${i}`;
     }
     return allCharacters;

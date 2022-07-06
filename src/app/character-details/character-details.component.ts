@@ -24,7 +24,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   groupedCharacters() {
     this.starwarsApi.getAllCharacters().subscribe(data => {
-      this.allCharacters.push(data.results);
+      this.allCharacters.push(...data.results);
     });
     console.log(this.allCharacters);
   }

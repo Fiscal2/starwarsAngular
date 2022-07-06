@@ -22,14 +22,17 @@ export class StarwarsService {
   public getAllCharacters(): Observable<any>[] {
     const allCharacters: any = []
     let baseUrl = "https://swapi.dev/api/people/"
-    for (let i = 1; i <= 82; i++) {
-      this.http.get<any>(baseUrl).subscribe((response: any) => {
-        allCharacters.push(response.results);
-        baseUrl = response.next;
-      });
+    // for (let i = 1; i <= 82; i++) {
+    //   this.http.get<any>(baseUrl).subscribe((response: any) => {
+    //     allCharacters.push(response.results);
+    //     baseUrl = response.next;
+    //   });
 
-      baseUrl = baseUrl;
-    }
-    return allCharacters.flat(1);
+    this.http.get<any>(baseUrl).subscribe((response: any) => {
+      allCharacters.push(response.results);
+
+      //baseUrl = baseUrl;
+    })
+    return allCharacters;
   }
 }

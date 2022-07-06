@@ -10,6 +10,8 @@ export class CharacterDetailsComponent implements OnInit {
 
   characterData: any | undefined;
 
+  const allCharacters = []
+
   constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit() {
@@ -18,7 +20,14 @@ export class CharacterDetailsComponent implements OnInit {
     });
 
     this.starwarsApi.getAllCharacters().subscribe(data => console.log(data.results));
+
+  }
+  groupedCharacters() {
+    this.starwarsApi.getAllCharacters().subscribe(data => this.allCharacters.push.concat(1)(data.results));
+
   }
 }
+
+
 
 

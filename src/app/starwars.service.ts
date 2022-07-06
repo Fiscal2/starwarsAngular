@@ -29,6 +29,6 @@ export class StarwarsService {
 
       baseUrl = `https://swapi.dev/api/people/?page=${i}`;
     }
-    return allCharacters;
+    return allCharacters.flat(1);
   }
 }

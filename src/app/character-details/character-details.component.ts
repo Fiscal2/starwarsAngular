@@ -17,7 +17,9 @@ export class CharacterDetailsComponent implements OnInit {
       this.characterData = data.results
       console.log(data);
       console.log(data.results);
-    })
+    });
+
+    console.log(this.starwarsApi.getAllCharacters());
   }
 }
 

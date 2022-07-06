@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { EMPTY, expand, reduce, mergeMap, Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +20,18 @@ export class StarwarsService {
   }
 
   public getAllCharacters() {
-    const allCharacters: any = []
-    let baseUrl = "https://swapi.dev/api/people/"
-    let nextUrl: string = "";
-    for (let i = 1; i <= 82; i++) {
-      this.http.get(baseUrl).subscribe((response: any) => {
-        allCharacters.push(response);
-        nextUrl = response.next;
-      });
-      baseUrl = nextUrl;
-    }
-    // this.http.get<any>(baseUrl).subscribe((response: any) => {
-    //   allCharacters.push(response.results);
-    // })
-    return allCharacters;
+    const allLinks = this.createAllPaginationLinks();
+    return from(allLinks).pipe(
+      mergeMap((link: any) => this.http.get<any>(link))
+    );
   }
+
+  public createAllPaginationLinks() {
+    const allLinks: any = ["https://swapi.dev/api/people/"];
+    for (let i = 2; i <= 9; i++) {
+      allLinks.push(`https://swapi.dev/api/people/?page=${i}`)
+    }
+    return allLinks
+  }
+
 }

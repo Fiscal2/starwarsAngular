@@ -23,7 +23,7 @@ export class StarwarsService {
     const allCharacters = []
     let baseUrl = "https://swapi.dev/api"
     for (let i = 1; i <= 82; i++) {
-      const pageData = this.http.get<any>(`${this.BASE_API_URL}`);
+      const pageData = this.http.get<any>(`${this.BASE_API_URL}/people/?page=${i}`);
       allCharacters.push(pageData);
     }
     return allCharacters;

@@ -25,9 +25,10 @@ export class StarwarsService {
     for (let i = 1; i <= 82; i++) {
       this.http.get<any>(baseUrl).subscribe((response: any) => {
         allCharacters.push(response.results);
+        baseUrl = response.next;
       });
 
-      baseUrl = `https://swapi.dev/api/people/?page=${i}`;
+      baseUrl = baseUrl;
     }
     return allCharacters.flat(1);
   }

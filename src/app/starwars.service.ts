@@ -19,10 +19,10 @@ export class StarwarsService {
     return this.http.get<any>(`${this.BASE_API_URL}/people/`);
   }
 
-  public getAllCharacters(): Observable<any> {
+  public getAllCharacters(): Observable<any>[] {
     const allCharacters = []
     let baseUrl = "https://swapi.dev/api"
-    for(let i = 1; i <= 82; i++) {
+    for (let i = 1; i <= 82; i++) {
       const pageData = this.http.get<any>(`${this.BASE_API_URL}`);
       allCharacters.push(pageData);
     }

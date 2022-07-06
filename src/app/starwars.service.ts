@@ -18,4 +18,14 @@ export class StarwarsService {
   public getCharacters(): Observable<any> {
     return this.http.get<any>(`${this.BASE_API_URL}/people/`);
   }
+
+  public getAllCharacters(): Observable<any> {
+    const allCharacters = []
+    let baseUrl = "https://swapi.dev/api"
+    for(let i = 1; i <= 82; i++) {
+      const pageData = this.http.get<any>(`${this.BASE_API_URL}`);
+      allCharacters.push(pageData);
+    }
+    return allCharacters;
+  }
 }

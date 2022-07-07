@@ -5,7 +5,7 @@
             <div class="card shadow-sm bg-light bg-gradient">
                 <div class="card-body">
                     <h4 class="fw-bolder card-title">{{character.name}}</h4>
-                    <p class="card-text"><b>Height:</b> {{character.height / 30.48}}ft</p>
+                    <p class="card-text"><b>Height:</b> {{character.height | heightConverter}}</p>
                     <p class="card-text"><b>Weight:</b> {{character.mass * 2.2 | number:'1.0-0'}}lbs</p>
                     <p class="card-text"><b>Birth Year:</b> {{character.birth_year}}</p>
                 </div>

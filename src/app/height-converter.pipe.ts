@@ -10,7 +10,7 @@ export class HeightConverterPipe implements PipeTransform {
     const feet = Math.floor(totalInches / 12);
     const inches = totalInches % 12
 
-    return `${feet}ft ${inches}in`;
+    return `${feet} feet ${inches} inches`;
   }
 
 }

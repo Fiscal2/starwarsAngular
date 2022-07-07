@@ -1,14 +1,16 @@
 <div class="bg-dark p-3">
     <h1 class="text-center p-5 gradient-text m-0" style="font-size: 4em; color: yellow;" >All Characters</h1>
-    <div class="row row-cols-1 row-cols-md-4 g-3">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
         <div class="col" *ngFor="let character of allCharacters">
             <div class="card shadow-sm bg-light bg-gradient">
                 <div class="card-body">
-                    <p class="fw-bolder">{{character.name}}</p>
-                    <p>{{character.height}}cm</p>
-                    <p>{{character.mass}}kg</p>
-                    <p class="fw-bolder">Birth Year:</p>
-                    <p>{{character.birth_year}}</p>
+                    <h5 class="fw-bolder card-title">{{character.name}}</h5>
+                    <p class="fw-bolder card-text">Height:</p>
+                    <p class="card-text">{{character.height}}cm</p>
+                    <p class="fw-bolder card-text">Weight:</p>
+                    <p class="card-text">{{character.mass}}kg</p>
+                    <p class="card-text fw-bolder">Birth Year:</p>
+                    <p class="card-text">{{character.birth_year}}</p>
                 </div>
             </div>
         </div>

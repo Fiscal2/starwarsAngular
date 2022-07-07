@@ -34,6 +34,14 @@ export class CharacterDetailsComponent implements OnInit {
   characterSorter() {
     this.allCharacters.sort();
   }
+
+  heightConverter() {
+
+  }
+
+  weightConverter() {
+    
+  }
 }
 
 

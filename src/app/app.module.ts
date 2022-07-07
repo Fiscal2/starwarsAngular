@@ -7,6 +7,7 @@ import { CharacterDetailsComponent } from './character-details/character-details
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { HeightConverterPipe } from './height-converter.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     CharacterDetailsComponent,
     NavbarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    HeightConverterPipe
   ],
   imports: [
     BrowserModule,

@@ -9,10 +9,15 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     trigger('queryAnimation', [
       transition('* => goAnimate', [
         // hide the inner elements
-        query('.background-img', style({ "background-image": "../../assets/warpspeed2.gif" })),
+        query('.background-img', style({
+          "background": "green",
+          "min-height": "100vh",
+          "width": "100%",
+          "background-size": "cover"
+        })),
 
         // animate the inner elements in, one by one
-        query('.background-img', animate(1000, style({ opacity: 1, "background": "black"}))),
+        query('.background-img', animate(1000, style({ "background": "black" }))),
       ])
     ])
   ]
@@ -22,6 +27,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.goAnimate()
   }
 
   goAnimate() {

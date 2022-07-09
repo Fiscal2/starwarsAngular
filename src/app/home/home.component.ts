@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, query, style, transition, trigger } from '@angular/animations';
 import { reduce } from 'rxjs';
 
 @Component({
@@ -9,6 +9,7 @@ import { reduce } from 'rxjs';
   animations: [
     trigger("homepageFade", [
       transition('start => finish',[
+       query('.background-img', style({background-image: url("../../assets/warpspeed2.gif");}))
         animate('1s', style({background: "red"}))
       ])
     ])

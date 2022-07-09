@@ -9,12 +9,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     trigger('queryAnimation', [
       transition('* => goAnimate', [
         // hide the inner elements
-        query('.background-img', style({
-          "background": "green",
-          "min-height": "100vh",
-          "width": "100%",
-          "background-size": "cover"
-        })),
+        query('.background-img', style({ "background": "green" })),
 
         // animate the inner elements in, one by one
         query('.background-img', animate(5000, style({ "background": "black" }))),

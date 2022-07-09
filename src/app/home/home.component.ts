@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { animate, style, transition } from '@angular/animations';
+import { reduce } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    transition('start => finish',[
+      animate('1s', style({background: "red"}))
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
   }
 
 }

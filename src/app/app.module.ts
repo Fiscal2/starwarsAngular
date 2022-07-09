@@ -11,6 +11,7 @@ import { HeightConverterPipe } from './height-converter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    HeightConverterPipe
+    HeightConverterPipe,
   ],
   imports: [
     BrowserModule,

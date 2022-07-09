@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { animate, style, transition } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { reduce } from 'rxjs';
 
 @Component({
@@ -7,8 +7,10 @@ import { reduce } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations: [
-    transition('start => finish',[
-      animate('1s', style({background: "red"}))
+    trigger("homepageFade", [
+      transition('start => finish',[
+        animate('1s', style({background: "red"}))
+      ])
     ])
   ]
 })

@@ -10,7 +10,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
       transition('* => goAnimate', [
         // hide the inner elements
         query('.background-img', style({
-          "background": ("../../assets/warpspeed2.gif"),
+          "background": "url(../../assets/warpspeed2.gif)",
           "background-repeat": "no-repeat",
           "background-size": "cover",
           "background-position": "center"

@@ -17,7 +17,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
         })),
 
         // animate the inner elements in, one by one
-        query('.background-img', animate(1000, style({ "background": "black" }))),
+        query('.background-img', animate(5000, style({ "background": "black" }))),
       ])
     ])
   ]

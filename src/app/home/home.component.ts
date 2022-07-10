@@ -13,7 +13,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
           "background": "url(../../assets/warpspeed2.gif)",
         })),
 
-        query('.background-img', animate(6500, style({
+        query('.background-img', animate(5250, style({
           "background": "black",
           "background-repeat": "no-repeat",
           "background-size": "cover",

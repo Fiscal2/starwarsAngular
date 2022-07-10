@@ -17,12 +17,20 @@ export class CharacterDetailsComponent implements OnInit {
   constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit() {
+    this.getAllCharacters();
+    this.groupedCharacters();
+    this.characterSorter();
+  }
+
+  ngAfterViewInit() {
+    const loader = document.getElementById("loaderWheel");
+    loader?.classList.add("d-none")
+  }
+
+  getAllCharacters(){
     this.starwarsApi.getCharacters().subscribe(data => {
       this.characterData = data.results
     });
-
-    this.groupedCharacters();
-    this.characterSorter();
   }
 
   groupedCharacters() {
@@ -33,14 +41,6 @@ export class CharacterDetailsComponent implements OnInit {
 
   characterSorter() {
     this.allCharacters.sort();
-  }
-
-  heightConverter() {
-
-  }
-
-  weightConverter() {
-    
   }
 }
 

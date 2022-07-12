@@ -11,20 +11,12 @@ export class StarwarsService {
 
   constructor(private http: HttpClient) { }
 
-  public getSpecificCharacter(): Observable<any> {
-    return this.http.get<any>(`${this.BASE_API_URL}/people/1/`);
-  }
-
-  public getCharacters(): Observable<any> {
-    return this.http.get<any>(`${this.BASE_API_URL}/people/`);
-  }
-
-  public getStarWarsData(endpoint: string): Observable<any> {
+  public getSpecificStarWarsData(endpoint: string): Observable<any> {
     return this.http.get<any>(`${this.BASE_API_URL}/${endpoint}/`);
   }
 
-  public getAllCharacters(): Observable<any> {
-    const allLinks = this.allPaginationLinks("people", 9);
+  public getAllPagesStarWarsData(endpointName: string, pageNum: number): Observable<any> {
+    const allLinks = this.allPaginationLinks(endpointName, pageNum);
     return this.mergeAllPaginatedData(allLinks);
   }
 

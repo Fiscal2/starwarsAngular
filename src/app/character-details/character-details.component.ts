@@ -8,33 +8,22 @@ import { StarwarsService } from '../starwars.service';
 })
 export class CharacterDetailsComponent implements OnInit {
 
-  characterData: any | undefined;
-
   allCharacters: any = []
-
-  sortedCharacters: any = []
 
   constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit() {
     this.getAllCharacters();
-    this.groupedCharacters();
     this.characterSorter();
   }
 
-  ngAfterViewInit() {
-    const loader = document.getElementById("loaderWheel");
-    loader?.classList.add("d-none")
-  }
+  // ngAfterViewInit() {
+  //   const loader = document.getElementById("loaderWheel");
+  //   loader?.classList.add("d-none")
+  // }
 
-  getAllCharacters(){
-    this.starwarsApi.getCharacters().subscribe(data => {
-      this.characterData = data.results
-    });
-  }
-
-  groupedCharacters() {
-    this.starwarsApi.getAllCharacters().subscribe(data => {
+  getAllCharacters() {
+    this.starwarsApi.getAllPagesStarWarsData("people", 9).subscribe(data => {
       this.allCharacters.push(...data.results);
     });
   }

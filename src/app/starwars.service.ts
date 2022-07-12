@@ -11,12 +11,8 @@ export class StarwarsService {
 
   constructor(private http: HttpClient) { }
 
-  public getSpecificStarWarsData(endpoint: string): Observable<any> {
-    return this.http.get<any>(`${this.BASE_API_URL}/${endpoint}/`);
-  }
-
-  public getAllPagesStarWarsData(endpointName: string, pageNum: number): Observable<any> {
-    const allLinks = this.allPaginationLinks(endpointName, pageNum);
+  public getStarWarsData(endpointName: StarWarsEndPoints, totalPages: number): Observable<any> {
+    const allLinks = this.allPaginationLinks(endpointName, totalPages);
     return this.mergeAllPaginatedData(allLinks);
   }
 
@@ -28,12 +24,20 @@ export class StarwarsService {
 
   private allPaginationLinks(endpoint: string, pages: number) {
     const allLinks: any = [`https://swapi.dev/api/${endpoint}/`];
-    for (let i = 2; i <= pages; i++) {
-      allLinks.push(`https://swapi.dev/api/people/?page=${i}`);
+    if (pages >= 2) {
+      for (let i = 2; i <= pages; i++) {
+        allLinks.push(`https://swapi.dev/api/people/?page=${i}`);
+      }
     }
     return allLinks;
   }
+}
 
-
-
+export enum StarWarsEndPoints {
+  FILMS = 'films',
+  PEOPLE = 'people',
+  PLANETS = 'planets',
+  SPECIES = 'species',
+  STARSHIPS = 'starships',
+  VEHICLES = 'vehicles'
 }

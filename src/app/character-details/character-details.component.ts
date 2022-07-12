@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StarwarsService } from '../starwars.service';
+import { StarwarsService, StarWarsEndPoints } from '../starwars.service';
 
 @Component({
   selector: 'app-character-details',
@@ -14,7 +14,6 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCharacters();
-    this.characterSorter();
   }
 
   // ngAfterViewInit() {
@@ -23,13 +22,9 @@ export class CharacterDetailsComponent implements OnInit {
   // }
 
   getAllCharacters() {
-    this.starwarsApi.getAllPagesStarWarsData("people", 9).subscribe(data => {
-      this.allCharacters.push(...data.results);
+    this.starwarsApi.getStarWarsData(StarWarsEndPoints.PEOPLE, 9).subscribe(data => {
+      this.allCharacters.push(...data.results).sort();
     });
-  }
-
-  characterSorter() {
-    this.allCharacters.sort();
   }
 }
 

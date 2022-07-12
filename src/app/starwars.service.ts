@@ -41,3 +41,8 @@ export enum StarWarsEndPoints {
   STARSHIPS = 'starships',
   VEHICLES = 'vehicles'
 }
+
+export enum totalPages {
+  PEOPLE = 9,
+  STARSHIPS = 4,
+}

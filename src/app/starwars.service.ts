@@ -43,6 +43,7 @@ export enum StarWarsEndPoints {
 }
 
 export enum totalPages {
+  DEFAULT = 1,
   PEOPLE = 9,
   STARSHIPS = 4,
 }

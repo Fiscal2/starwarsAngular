@@ -23,12 +23,12 @@ export class StarwarsService {
     return this.http.get<any>(`${this.BASE_API_URL}/${endpoint}/`);
   }
 
-  public getAllCharacters() {
+  public getAllCharacters(): Observable<any> {
     const allLinks = this.allPaginationLinks("people", 9);
     return this.mergeAllPaginatedData(allLinks);
   }
 
-  private mergeAllPaginatedData(links: []) {
+  private mergeAllPaginatedData(links: []): Observable<any> {
     return from(links).pipe(
       mergeMap((link: any) => this.http.get<any>(link))
     );

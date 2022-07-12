@@ -11,7 +11,7 @@ export class StarwarsService {
 
   constructor(private http: HttpClient) { }
 
-  public getStarWarsData(endpointName: StarWarsEndPoints, totalPages: number): Observable<any> {
+  public getStarWarsData(endpointName: StarWarsEndPoints, totalPages: number = 1): Observable<any> {
     const allLinks = this.allPaginationLinks(endpointName, totalPages);
     return this.mergeAllPaginatedData(allLinks);
   }

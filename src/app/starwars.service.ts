@@ -24,15 +24,15 @@ export class StarwarsService {
   }
 
   public getAllCharacters() {
-    const allLinks = this.createAllPaginationLinks();
+    const allLinks = this.createAllPaginationLinks("people", 9);
     return from(allLinks).pipe(
       mergeMap((link: any) => this.http.get<any>(link))
     );
   }
 
-  private createAllPaginationLinks() {
-    const allLinks: any = ["https://swapi.dev/api/people/"];
-    for (let i = 2; i <= 9; i++) {
+  private createAllPaginationLinks(endpoint: string, pages: number) {
+    const allLinks: any = [`https://swapi.dev/api/${endpoint}/`];
+    for (let i = 2; i <= pages; i++) {
       allLinks.push(`https://swapi.dev/api/people/?page=${i}`)
     }
     return allLinks

@@ -24,18 +24,22 @@ export class StarwarsService {
   }
 
   public getAllCharacters() {
-    const allLinks = this.createAllPaginationLinks("people", 9);
-    return from(allLinks).pipe(
+    const allLinks = this.allPaginationLinks("people", 9);
+    return this.mergeAllPaginatedData(allLinks);
+  }
+
+  private mergeAllPaginatedData(links: []) {
+    return from(links).pipe(
       mergeMap((link: any) => this.http.get<any>(link))
     );
   }
 
-  private createAllPaginationLinks(endpoint: string, pages: number) {
+  private allPaginationLinks(endpoint: string, pages: number) {
     const allLinks: any = [`https://swapi.dev/api/${endpoint}/`];
     for (let i = 2; i <= pages; i++) {
-      allLinks.push(`https://swapi.dev/api/people/?page=${i}`)
+      allLinks.push(`https://swapi.dev/api/people/?page=${i}`);
     }
-    return allLinks
+    return allLinks;
   }
 
 

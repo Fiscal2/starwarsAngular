@@ -19,6 +19,10 @@ export class StarwarsService {
     return this.http.get<any>(`${this.BASE_API_URL}/people/`);
   }
 
+  public getStarWarsData(endpoint: string): Observable<any> {
+    return this.http.get<any>(`${this.BASE_API_URL}/${endpoint}/`);
+  }
+
   public getAllCharacters() {
     const allLinks = this.createAllPaginationLinks();
     return from(allLinks).pipe(
@@ -26,7 +30,7 @@ export class StarwarsService {
     );
   }
 
-  public createAllPaginationLinks() {
+  private createAllPaginationLinks() {
     const allLinks: any = ["https://swapi.dev/api/people/"];
     for (let i = 2; i <= 9; i++) {
       allLinks.push(`https://swapi.dev/api/people/?page=${i}`)
@@ -34,6 +38,6 @@ export class StarwarsService {
     return allLinks
   }
 
-  
+
 
 }

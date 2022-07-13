@@ -23,7 +23,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   getAllCharacters() {
     this.starwarsApi.getStarWarsData(StarWarsEndPoints.PEOPLE, 9).subscribe(data => {
-      this.allCharacters.push(...data.results).sort();
+      this.allCharacters.push(...data.results)
     });
   }
 }

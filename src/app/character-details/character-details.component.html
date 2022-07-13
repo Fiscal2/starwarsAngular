@@ -9,22 +9,31 @@
         <div class="col" *ngFor="let character of allCharacters">
             <div class="card shadow-sm bg-light bg-gradient">
                 <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-target="#dropdownMenuContent"
-                            aria-controls="dropdownMenuContent" aria-expanded="false">
-                            <i class="bi bi-chevron-double-down"></i>
-                            </button>
-                            <ul class="dropdown-menu" id="dropdownMenuContent">
-                                <p><a class="dropdown-item">Character Summary</a></p>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
                     <h4 class="fw-bolder card-title">{{character.name}}</h4>
                     <p class="card-text"><b>Height:</b> {{character.height | heightConverter}}</p>
                     <p class="card-text"><b>Weight:</b> {{character.mass * 2.2 | number:'1.0-0'}}lbs</p>
-                    <p class="card-text"><b>Birth Year:</b> {{character.birth_year}}</p>
+                    <p class="card-text"><b>Birth Year:</b> {{character.birth_year}}</p> 
+
+                    <div class="d-flex align-items-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#characterModal">
+                            More Details
+                        </button>
+                    </div>
+                </div>
+                <div class="modal fade" id="characterModal" tabindex="-1" aria-labelledby="charactereModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="characterModalLabel">Character Summary</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Character summary goes here!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>

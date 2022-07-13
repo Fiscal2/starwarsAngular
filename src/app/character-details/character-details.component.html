@@ -6,7 +6,8 @@
         </div>
       </div> -->
     <div class="row row-cols-1 row-cols-md-3 g-3">
-        <div class="col" *ngFor="let character of allCharacters">
+        <div class="col" *ngFor="let character of allCharacters; index as i">
+            {{i+1}} {{character}}
             <div class="card shadow-sm bg-light bg-gradient">
                 <div class="card-body">
                     <h4 class="fw-bolder card-title">{{character.name}}</h4>
@@ -15,12 +16,12 @@
                     <p class="card-text"><b>Birth Year:</b> {{character.birth_year}}</p> 
 
                     <div class="d-flex align-items-center">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#characterModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#characterModal{{i}}">
                             More Details
                         </button>
                     </div>
                 </div>
-                <div class="modal fade" id="characterModal" tabindex="-1" aria-labelledby="charactereModalLabel" aria-hidden="true">
+                <div class="modal fade" id="characterModal{{i}}" tabindex="-1" aria-labelledby="charactereModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">

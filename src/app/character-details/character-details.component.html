@@ -13,28 +13,31 @@
                     <h4 class="fw-bolder card-title">{{character.name}}</h4>
                     <p class="card-text"><b>Height:</b> {{character.height | heightConverter}}</p>
                     <p class="card-text"><b>Weight:</b> {{character.mass * 2.2 | number:'1.0-0'}}lbs</p>
-                    <p class="card-text"><b>Birth Year:</b> {{character.birth_year}}</p> 
+                    <p class="card-text"><b>Birth Year:</b> {{character.birth_year}}</p>
 
                     <div class="d-flex align-items-center">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#characterModal{{i}}">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            [attr.data-bs-target]="'#characterModal' + i">
                             More Details
                         </button>
                     </div>
                 </div>
-                <div class="modal fade" id="characterModal{{i}}" tabindex="-1" aria-labelledby="charactereModalLabel" aria-hidden="true">
+                <div class="modal fade" [attr.id]="'#characterModal' + i" tabindex="-1"
+                    aria-labelledby="charactereModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="characterModalLabel">Character Summary</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="characterModalLabel">Character Summary</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Character summary goes here!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                          Character summary goes here!
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                      </div>
                     </div>
                 </div>
             </div>

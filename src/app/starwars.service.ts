@@ -9,8 +9,8 @@ export class StarwarsService {
 
   constructor(private http: HttpClient) { }
 
-  public getStarWarsPage(endpoint: string, page: number = 0): Observable<any> {
-    if (page > 0) {
+  public getStarWarsPage(endpoint: string, page: number = 1): Observable<any> {
+    if (page > 1) {
       return this.http.get<any>(`https://swapi.dev/api/${endpoint}/?page=${page}`);
     } else {
       return this.http.get<any>(`https://swapi.dev/api/${endpoint}`);

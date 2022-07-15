@@ -9,6 +9,15 @@ export class StarwarsService {
 
   constructor(private http: HttpClient) { }
 
+  public getStarWarsPage(endpoint: string, page: number = 0): Observable<any> {
+    if (page > 0) {
+      return this.http.get<any>(`https://swapi.dev/api/${endpoint}/?page=${page}`);
+    } else {
+      return this.http.get<any>(`https://swapi.dev/api/${endpoint}`);
+    }
+
+  }
+
   public getStarWarsData(endpointName: StarWarsEndPoints, totalPages: number = 1): Observable<any> {
     const allLinks = this.allPaginationLinks(endpointName, totalPages);
     return this.mergeAllPaginatedData(allLinks);

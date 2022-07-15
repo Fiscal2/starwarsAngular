@@ -33,6 +33,7 @@ export class CharacterDetailsComponent implements OnInit {
     });
     // need to call this.starwarsApi..... and give it the page number and endpoint... 
     // then just like getAllCharacters() put the data into this.allCharacters
+    this.allCharacters = []
   }
 }
 

@@ -18,7 +18,7 @@ export class StarwarsService {
 
   }
 
-  public getStarWarsData(endpointName: StarWarsEndPoints, totalPages: number = 1): Observable<any> {
+  public getStarWarsData(endpointName: APIEndPoints, totalPages: number = 1): Observable<any> {
     const allLinks = this.allPaginationLinks(endpointName, totalPages);
     return this.mergeAllPaginatedData(allLinks);
   }
@@ -40,7 +40,7 @@ export class StarwarsService {
   }
 }
 
-export enum StarWarsEndPoints {
+export enum APIEndPoints {
   FILMS = 'films',
   PEOPLE = 'people',
   PLANETS = 'planets',
@@ -49,8 +49,12 @@ export enum StarWarsEndPoints {
   VEHICLES = 'vehicles'
 }
 
-export enum PageNumbersPerEndPoint {
+export enum PagesPerEndPoint {
   DEFAULT = 1,
   PEOPLE = 9,
   STARSHIPS = 4,
+  SPECIES = 4,
+  PLANETS = 6,
+  FILMS = 1,
+  VEHICLES = 4
 }

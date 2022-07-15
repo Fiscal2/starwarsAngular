@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StarwarsService, StarWarsEndPoints } from '../starwars.service';
+import { StarwarsService, APIEndPoints } from '../starwars.service';
 
 @Component({
   selector: 'app-character-details',
@@ -22,7 +22,7 @@ export class CharacterDetailsComponent implements OnInit {
   // }
 
   getAllCharacters() {
-    this.starwarsApi.getStarWarsData(StarWarsEndPoints.PEOPLE, 9).subscribe(data => {
+    this.starwarsApi.getStarWarsData(APIEndPoints.PEOPLE, 9).subscribe(data => {
       this.allCharacters.push(...data.results)
     });
   }

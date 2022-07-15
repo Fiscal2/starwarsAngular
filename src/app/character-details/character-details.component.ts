@@ -16,17 +16,6 @@ export class CharacterDetailsComponent implements OnInit {
     this.paginatedCharacters();
   }
 
-  // ngAfterViewInit() {
-  //   const loader = document.getElementById("loaderWheel");
-  //   loader?.classList.add("d-none")
-  // }
-
-  // getAllCharacters() {
-  //   this.starwarsApi.getStarWarsData(APIEndPoints.PEOPLE, 9).subscribe(data => {
-  //     this.allCharacters.push(...data.results)
-  //   });
-  // }
-
   paginatedCharacters(pageNumber: number = 1) {
     this.allCharacters = [];
     this.starwarsApi.getStarWarsPage(APIEndPoints.PEOPLE, pageNumber).subscribe(data => {

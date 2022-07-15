@@ -28,6 +28,9 @@ export class CharacterDetailsComponent implements OnInit {
   }
 
   paginatedCharacters(pageNumber = 1) {
+    this.starwarsApi.getStarWarsData(APIEndPoints.PEOPLE, pageNumber).subscribe(data = {
+      this.allCharacters.push(...data.results)
+    });
     // need to call this.starwarsApi..... and give it the page number and endpoint... 
     // then just like getAllCharacters() put the data into this.allCharacters
   }

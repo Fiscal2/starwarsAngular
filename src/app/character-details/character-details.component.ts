@@ -27,9 +27,9 @@ export class CharacterDetailsComponent implements OnInit {
     });
   }
 
-  paginationCardBuilder(pageNumber = 0) {
-    const groupedCharacterData = paginatedFetchEndpoint({endpoint: Number, pageCount: 9, grouped: true});
-    
+  paginatedCharacters(pageNumber = 1) {
+    // need to call this.starwarsApi..... and give it the page number and endpoint... 
+    // then just like getAllCharacters() put the data into this.allCharacters
   }
 }
 

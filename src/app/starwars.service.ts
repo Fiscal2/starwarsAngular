@@ -14,14 +14,14 @@ export class StarwarsService {
     return this.mergeAllPaginatedData(allLinks);
   }
 
-  private mergeAllPaginatedData(links: []): Observable<any> {
+  private mergeAllPaginatedData(links: [string]): Observable<any> {
     return from(links).pipe(
       mergeMap((link: any) => this.http.get<any>(link))
     );
   }
 
-  private allPaginationLinks(endpoint: string, pages: number) {
-    const allLinks: any = [`https://swapi.dev/api/${endpoint}/`];
+  private allPaginationLinks(endpoint: string, pages: number): [string] {
+    const allLinks: [string] = [`https://swapi.dev/api/${endpoint}/`];
     if (pages >= 2) {
       for (let i = 2; i <= pages; i++) {
         allLinks.push(`https://swapi.dev/api/people/?page=${i}`);

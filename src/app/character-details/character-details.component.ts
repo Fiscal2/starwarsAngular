@@ -26,6 +26,11 @@ export class CharacterDetailsComponent implements OnInit {
       this.allCharacters.push(...data.results)
     });
   }
+
+  paginationCardBuilder(pageNumber = 0) {
+    const groupedCharacterData = paginatedFetchEndpoint({endpoint: Number, pageCount: 9, grouped: true});
+    
+  }
 }
 
 

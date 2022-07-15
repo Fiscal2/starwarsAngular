@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { EMPTY, expand, reduce, mergeMap, Observable, from } from 'rxjs';
+import { mergeMap, Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StarwarsService {
-
-  private readonly BASE_API_URL: string = "https://swapi.dev/api"
 
   constructor(private http: HttpClient) { }
 
@@ -42,7 +40,7 @@ export enum StarWarsEndPoints {
   VEHICLES = 'vehicles'
 }
 
-export enum totalPages {
+export enum PageNumbersPerEndPoint {
   DEFAULT = 1,
   PEOPLE = 9,
   STARSHIPS = 4,

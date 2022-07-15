@@ -18,26 +18,26 @@ export class StarwarsService {
 
   }
 
-  public getStarWarsData(endpointName: APIEndPoints, totalPages: number = 1): Observable<any> {
-    const allLinks = this.allPaginationLinks(endpointName, totalPages);
-    return this.mergeAllPaginatedData(allLinks);
-  }
+  // public getStarWarsData(endpointName: APIEndPoints, totalPages: number = 1): Observable<any> {
+  //   const allLinks = this.allPaginationLinks(endpointName, totalPages);
+  //   return this.mergeAllPaginatedData(allLinks);
+  // }
 
-  private mergeAllPaginatedData(links: [string]): Observable<any> {
-    return from(links).pipe(
-      mergeMap((link: any) => this.http.get<any>(link))
-    );
-  }
+  // private mergeAllPaginatedData(links: [string]): Observable<any> {
+  //   return from(links).pipe(
+  //     mergeMap((link: any) => this.http.get<any>(link))
+  //   );
+  // }
 
-  private allPaginationLinks(endpoint: string, pages: number): [string] {
-    const allLinks: [string] = [`https://swapi.dev/api/${endpoint}/`];
-    if (pages >= 2) {
-      for (let i = 2; i <= pages; i++) {
-        allLinks.push(`https://swapi.dev/api/people/?page=${i}`);
-      }
-    }
-    return allLinks;
-  }
+  // private allPaginationLinks(endpoint: string, pages: number): [string] {
+  //   const allLinks: [string] = [`https://swapi.dev/api/${endpoint}/`];
+  //   if (pages >= 2) {
+  //     for (let i = 2; i <= pages; i++) {
+  //       allLinks.push(`https://swapi.dev/api/people/?page=${i}`);
+  //     }
+  //   }
+  //   return allLinks;
+  // }
 }
 
 export enum APIEndPoints {

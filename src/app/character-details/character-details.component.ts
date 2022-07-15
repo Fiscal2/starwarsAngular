@@ -13,7 +13,7 @@ export class CharacterDetailsComponent implements OnInit {
   constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit() {
-    this.getAllCharacters();
+    this.paginatedCharacters();
   }
 
   // ngAfterViewInit() {
@@ -21,14 +21,14 @@ export class CharacterDetailsComponent implements OnInit {
   //   loader?.classList.add("d-none")
   // }
 
-  getAllCharacters() {
-    this.starwarsApi.getStarWarsData(APIEndPoints.PEOPLE, 9).subscribe(data => {
-      this.allCharacters.push(...data.results)
-    });
-  }
+  // getAllCharacters() {
+  //   this.starwarsApi.getStarWarsData(APIEndPoints.PEOPLE, 9).subscribe(data => {
+  //     this.allCharacters.push(...data.results)
+  //   });
+  // }
 
   paginatedCharacters(pageNumber = 1) {
-    this.starwarsApi.getStarWarsData(APIEndPoints.PEOPLE, pageNumber).subscribe(data => {
+    this.starwarsApi.getStarWarsPage(APIEndPoints.PEOPLE, pageNumber).subscribe(data => {
       this.allCharacters.push(data.results)
     });
     // need to call this.starwarsApi..... and give it the page number and endpoint... 

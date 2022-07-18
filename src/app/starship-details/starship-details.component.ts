@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarwarsService, APIEndPoints } from '../starwars.service';
 
 @Component({
   selector: 'app-starship-details',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarshipDetailsComponent implements OnInit {
 
-  constructor() { }
+  allStarships: any = [];
+
+  constructor(private starwarsApi: StarwarsService) { }
 
   ngOnInit(): void {
+    this.paginatedStarships();
+  }
+
+  paginatedStarships(pageNumber: number = 1) {
+    this.allStarships = [];
+    this.starwarsApi.getStarWarsPage(APIEndPoints.STARSHIPS, pageNumber).subscribe(data => {
+      this.allStarships.push(...data.results)
+    });
   }
 
 }
